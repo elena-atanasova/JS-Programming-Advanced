@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .fancy-text {
+            font-style: italic;
+            font-size: 32px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+        }
+
+        .highlighted-text {
+            background-color: lightseagreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <button id="submit-button" disabled>Send</button>
+
+    <script>
+        let divElement = document.createElement('div');
+        divElement.textContent = 'Some text here';
+        divElement.classList.add('fancy-text');
+
+        let rootElement = document.getElementById('root');
+        rootElement.appendChild(divElement);
+
+        divElement.addEventListener('mouseover', (e) => {
+            e.currentTarget.classList.add('highlighted-text');
+        })
+
+        divElement.addEventListener('mouseout', (e) => {
+            e.currentTarget.classList.remove('highlighted-text');
+        })
+
+        let submitButton = document.getElementById('submit-button');
+        setTimeout(() => {
+            submitButton.removeAttribute('disabled');
+        }, 3000);
+
+    </script>
+
+</body>
+
+</html>
